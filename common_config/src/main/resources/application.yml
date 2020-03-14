@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: common-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/as31545518/ttConfig.git
+    bus:
+      refresh:
+        enabled: true #开启自动刷新
+
+  rabbitmq:
+    addresses: 192.168.207.60
+    username: admin
+    password: 123456
+    port: 5672
+    virtual-host: /
+
+server:
+  port: 9000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh #Greewitch.SR2版本中需要开启
